@@ -1,3 +1,9 @@
+### **(V.3.3.12 Changes) (1.18.1 Minecraft)**
+
+#### Cities:
+Fixed Overworld Cities not spawning due to typo I did back in hotfix v3.3.7
+
+
 ### **(V.3.3.11 Changes) (1.18.1 Minecraft)**
 
 #### Optimization:

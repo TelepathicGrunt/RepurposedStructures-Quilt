@@ -1,0 +1,78 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:taiga",
+    {
+      "id": "terralith:cloud_forest",
+      "required": false
+    },
+    {
+      "id": "terralith:forested_highlands",
+      "required": false
+    },
+    {
+      "id": "terralith:lavender_forest",
+      "required": false
+    },
+    {
+      "id": "terralith:lavender_valley",
+      "required": false
+    },
+    {
+      "id": "terralith:moonlight_grove",
+      "required": false
+    },
+    {
+      "id": "terralith:moonlight_valley",
+      "required": false
+    },
+    {
+      "id": "terralith:rocky_shrubland",
+      "required": false
+    },
+    {
+      "id": "terralith:shrubland",
+      "required": false
+    },
+    {
+      "id": "terralith:wintry_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:jade_cliffs",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:mediterranean_taiga",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:dead_forest",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:old_growth_dead_forest",
+      "required": false
+    },
+    {
+      "id": "byg:autumnal_taiga",
+      "required": false
+    },
+    {
+      "id": "byg:canadian_shield",
+      "required": false
+    },
+    {
+      "id": "byg:maple_taiga",
+      "required": false
+    },
+    {
+      "id": "forge:coniferous",
+      "required": false
+    },
+    {
+      "id": "c:coniferous",
+      "required": false
+    }
+  ]
+}

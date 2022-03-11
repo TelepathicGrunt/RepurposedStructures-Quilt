@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    {
+      "id": "terralith:brushland",
+      "required": false
+    },
+    {
+      "id": "forge:plains",
+      "required": false
+    },
+    {
+      "id": "c:plains",
+      "required": false
+    }
+  ]
+}

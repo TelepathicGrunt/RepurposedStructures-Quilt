@@ -1,0 +1,26 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_badlands",
+    {
+      "id": "terralith:savanna_badlands",
+      "required": false
+    },
+    {
+      "id": "forge:mesa",
+      "required": false
+    },
+    {
+      "id": "c:mesa",
+      "required": false
+    },
+    {
+      "id": "forge:badlands",
+      "required": false
+    },
+    {
+      "id": "c:badlands",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:stony_shore",
+    {
+      "id": "terralith:gravel_desert",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:cold_desert",
+      "required": false
+    },
+    {
+      "id": "c:stony_shores",
+      "required": false
+    }
+  ]
+}

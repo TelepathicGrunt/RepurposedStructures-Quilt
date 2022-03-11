@@ -24,180 +24,28 @@ public class RSAllowDisallowOmegaConfig implements Config {
     public void save() {
 
         if(configVersion == 1) {
-            addEntries(disallowedDimensions, "repurposed_structures:dungeons_neutral_ocean", "the_bumblezone:the_bumblezone");
-            addEntries(disallowedDimensions, "repurposed_structures:dungeons_neutral_ocean", "the_aether:the_aether");
-            addEntries(disallowedDimensions, "repurposed_structures:dungeons_neutral_ocean", "agape:.+");
-            addEntries(disallowedBiomes, "repurposed_structures:dungeons_neutral_ocean", "terrestria:lush_desert");
-            addEntries(disallowedBiomes, "repurposed_structures:dungeons_lukewarm_ocean", "terrestria:lush_desert");
-            addEntries(disallowedBiomes, "repurposed_structures:dungeons_frozen_ocean", "terrestria:lush_desert");
-            addEntries(disallowedBiomes, "repurposed_structures:dungeons_cold_ocean", "terrestria:lush_desert");
-            addEntries(disallowedBiomes, "repurposed_structures:dungeons_warm_ocean", "terrestria:lush_desert");
-            configVersion = 2;
-        }
-
-        if(configVersion == 2) {
+            addEntries(disallowedFeatureDimensions, "repurposed_structures:dungeons_neutral_ocean", "the_bumblezone:the_bumblezone");
+            addEntries(disallowedFeatureDimensions, "repurposed_structures:dungeons_neutral_ocean", "the_aether:the_aether");
+            addEntries(disallowedFeatureDimensions, "repurposed_structures:dungeons_neutral_ocean", "agape:.+");
             configVersion = 3;
         }
 
         if(configVersion == 3) {
-            addEntries(disallowedBiomes, "repurposed_structures:dungeons_badlands", "terralith:snowy_badlands");
-            addEntries(disallowedBiomes, "repurposed_structures:dungeons_snow", "terralith:gravel_desert");
-            addEntries(disallowedBiomes, "repurposed_structures:dungeons_desert", "terralith:red_oasis");
-            addEntries(disallowedBiomes, "repurposed_structures:dungeons_neutral_ocean", "terralith:skylands");
-            addEntries(disallowedBiomes, "repurposed_structures:mansion_desert", "terralith:red_oasis");
-            addEntries(disallowedBiomes, "repurposed_structures:mansion_snowy", "terralith:gravel_desert");
-            addEntries(disallowedBiomes, "repurposed_structures:mineshaft_savanna", "terralith:brushland");
-            addEntries(disallowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:volcanic_crater");
-            addEntries(disallowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:volcanic_peaks");
-            addEntries(disallowedBiomes, "repurposed_structures:village_mountains", "terralith:volcanic_crater");
-            addEntries(disallowedBiomes, "repurposed_structures:village_mountains", "terralith:volcanic_peaks");
-            addEntries(disallowedBiomes, "repurposed_structures:village_badlands", "terralith:snowy_badlands");
-            addEntries(disallowedBiomes, "repurposed_structures:outpost_badlands", "terralith:snowy_badlands");
-            addEntries(disallowedBiomes, "repurposed_structures:pyramid_badlands", "terralith:snowy_badlands");
+            addEntries(disallowedFeatureBiomes, "repurposed_structures:dungeons_badlands", "terralith:snowy_badlands");
+            addEntries(disallowedFeatureBiomes, "repurposed_structures:dungeons_snow", "terralith:gravel_desert");
+            addEntries(disallowedFeatureBiomes, "repurposed_structures:dungeons_desert", "terralith:red_oasis");
+            addEntries(disallowedFeatureBiomes, "repurposed_structures:dungeons_neutral_ocean", "terralith:skylands");
 
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_badlands", "terralith:savanna_badlands");
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_badlands", "terralith:red_oasis");
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_dark_forest", "terralith:mirage_isles");
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_desert", "terralith:cave/desert_caves");
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_snow", "terralith:alpine_grove");
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_snow", "terralith:alpine_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_snow", "terralith:cold_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_icy", "terralith:cave/frostfire_caves");
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_icy", "terralith:cave/ice_caves");
-            addEntries(allowedBiomes, "repurposed_structures:dungeons_icy", "terralith:cave/fungal_caves");
-
-            addEntries(allowedBiomes, "repurposed_structures:igloo_grassy", "terralith:brushland");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:amethyst_canyon");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:basalt_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:emerald_peaks");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:granite_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:haze_mountain");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:mountain_steppe");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:painted_mountains");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:rocky_mountains");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:shield_clearing");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:steppe");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:stony_spires");
-            addEntries(allowedBiomes, "repurposed_structures:igloo_stone", "terralith:valley_clearing");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_birch", "terralith:temperate_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_birch", "terralith:white_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_savanna", "terralith:hot_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_savanna", "terralith:sakura_grove");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_savanna", "terralith:sakura_valley");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_snowy", "terralith:alpine_grove");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_snowy", "terralith:alpine_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_snowy", "terralith:cold_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_snowy", "terralith:snowy_badlands");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_snowy", "terralith:snowy_shield");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_taiga", "terralith:forested_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_taiga", "terralith:lavender_forest");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_taiga", "terralith:lavender_valley");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_taiga", "terralith:moonlight_grove");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_taiga", "terralith:moonlight_valley");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_taiga", "terralith:rocky_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:mansion_taiga", "terralith:wintry_forest");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_birch", "terralith:wintry_forest");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_birch", "terralith:white_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_dark_forest", "terralith:mirage_isles");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_desert", "terralith:cave/desert_caves");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_icy", "terralith:cave/frostfire_caves");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_icy", "terralith:cave/ice_caves");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_savanna", "terralith:arid_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_savanna", "terralith:hot_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_savanna", "terralith:sakura_grove");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_savanna", "terralith:sakura_valley");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_savanna", "terralith:savanna_badlands");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:amethyst_canyon");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:basalt_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:emerald_peaks");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:granite_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:gravel_desert");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:mountain_steppe");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:steppe");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:shield_clearing");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_stone", "terralith:valley_clearing");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_taiga", "terralith:cloud_forest");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_taiga", "terralith:forested_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_taiga", "terralith:lavender_forest");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_taiga", "terralith:lavender_valley");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_taiga", "terralith:moonlight_grove");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_taiga", "terralith:moonlight_valley");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_taiga", "terralith:rocky_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:mineshaft_taiga", "terralith:shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_badlands", "terralith:savanna_badlands");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_birch", "terralith:temperate_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_birch", "terralith:white_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_snowy", "terralith:alpine_grove");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_snowy", "terralith:alpine_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_snowy", "terralith:cold_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_snowy", "terralith:snowy_shield");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_taiga", "terralith:forested_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_taiga", "terralith:lavender_forest");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_taiga", "terralith:lavender_valley");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_taiga", "terralith:moonlight_grove");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_taiga", "terralith:moonlight_valley");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_taiga", "terralith:rocky_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:outpost_taiga", "terralith:wintry_forest");
-            addEntries(allowedBiomes, "repurposed_structures:pyramid_badlands", "terralith:savanna_badlands");
-            addEntries(allowedBiomes, "repurposed_structures:pyramid_flower_forest", "terralith:blooming_plateau");
-            addEntries(allowedBiomes, "repurposed_structures:pyramid_flower_forest", "terralith:blooming_valley");
-            addEntries(allowedBiomes, "repurposed_structures:pyramid_snowy", "terralith:alpine_grove");
-            addEntries(allowedBiomes, "repurposed_structures:pyramid_snowy", "terralith:alpine_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:pyramid_snowy", "terralith:cold_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:pyramid_snowy", "terralith:snowy_shield");
-            addEntries(allowedBiomes, "repurposed_structures:village_badlands", "terralith:savanna_badlands");
-            addEntries(allowedBiomes, "repurposed_structures:village_birch", "terralith:temperate_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:village_birch", "terralith:white_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:village_dark_oak", "terralith:mirage_isles");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:amethyst_canyon");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:basalt_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:emerald_peaks");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:granite_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:highlands");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:mountain_steppe");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:rocky_mountains");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:steppe");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:stony_spires");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:shield_clearing");
-            addEntries(allowedBiomes, "repurposed_structures:village_mountains", "terralith:valley_clearing");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_birch", "terralith:temperate_highlands");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_birch", "terralith:white_cliffs");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_dark_forest", "terralith:mirage_isles");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_oak", "terralith:brushland");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:bryce_canyon");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:cloud_forest");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:lavender_forest");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:lavender_valley");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:moonlight_grove");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:moonlight_valley");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:rocky_shrubland");
-            addEntries(allowedBiomes, "repurposed_structures:witch_hut_taiga", "terralith:shrubland");
-            configVersion = 4;
-        }
-
-        if(configVersion == 4) {
-            removeEntries(allowedBiomes, "repurposed_structures:mansion_snowy", "terralith:alpine_highlands");
-            removeEntries(allowedBiomes, "repurposed_structures:pyramid_snowy", "terralith:alpine_highlands");
-            removeEntries(allowedBiomes, "repurposed_structures:outpost_snowy", "terralith:alpine_highlands");
-            removeEntries(allowedBiomes, "repurposed_structures:dungeons_snow", "terralith:alpine_highlands");
-            configVersion = 5;
-        }
-
-        if(configVersion == 5) {
-            addEntries(disallowedBiomes, "repurposed_structures:city_overworld", "terralith:.+");
-            addEntries(disallowedBiomes, "repurposed_structures:city_overworld", "byg:.+");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "terralith:amethyst_rainforest");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "terralith:jungle_mountains");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "terralith:rocky_jungle");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:orchard");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:coniferous_forest");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:coniferous_forest_hills");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:cherry_blossom_forest");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:tropical_rainforest");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:tropical_rainforest_hills");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:ebony_woods");
-            addEntries(allowedBiomes, "repurposed_structures:city_overworld", "byg:ebony_hills");
-            addEntries(allowedBiomes, "repurposed_structures:pyramid_dark_forest", "byg:ancient_forest");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_badlands", "terralith:savanna_badlands");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_badlands", "terralith:red_oasis");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_dark_forest", "terralith:mirage_isles");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_desert", "terralith:cave/desert_caves");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_snow", "terralith:alpine_grove");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_snow", "terralith:alpine_highlands");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_snow", "terralith:cold_shrubland");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_icy", "terralith:cave/frostfire_caves");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_icy", "terralith:cave/ice_caves");
+            addEntries(allowedFeatureBiomes, "repurposed_structures:dungeons_icy", "terralith:cave/fungal_caves");
             configVersion = 6;
         }
 
@@ -256,7 +104,7 @@ public class RSAllowDisallowOmegaConfig implements Config {
             // RS's dungeons and wells identifiers can be found here on GitHub:
             //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
             """)
-    public final Map<String, String> disallowedDimensions = new HashMap<>();
+    public final Map<String, String> disallowedFeatureDimensions = new HashMap<>();
 
     @Comment("""
 
@@ -288,7 +136,7 @@ public class RSAllowDisallowOmegaConfig implements Config {
             // RS's dungeons and wells identifiers can be found here on GitHub:
             //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
             """)
-    public final Map<String, String> allowedDimensions = new HashMap<>();
+    public final Map<String, String> allowedFeatureDimensions = new HashMap<>();
 
     @Comment("""
 
@@ -302,12 +150,11 @@ public class RSAllowDisallowOmegaConfig implements Config {
             // In the key part, specify the name of the structures or configuredfeatures from
             // Repurposed Structures that you want to affect. Then in the value part, add the identifiers
             // or regex for the biomes that you want Repurposed Structures stuff to NOT spawn in.
-            // You can also do biome categories as well by doing #swamp to remove from all swamp category biomes.
             
             // Separate multiple entries with a comma.
             // Example usage (the actual config entry to edit are the lines not starting with // further down):
             //  "disallowedBiomes": {
-            //    "repurposed_structures:bastion_underground": "minecraft:flower_forest, peaceful_lands:.+, #mushroom"
+            //    "repurposed_structures:bastion_underground": "minecraft:flower_forest, peaceful_lands:.+"
             //  }
             
             // In this example, Underground Bastions are remvoed from Flower Forest biome because we specified that biomes's identifier.
@@ -321,7 +168,7 @@ public class RSAllowDisallowOmegaConfig implements Config {
             // RS's dungeons and wells identifiers can be found here on GitHub:
             //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
             """)
-    public final Map<String, String> disallowedBiomes = new HashMap<>();
+    public final Map<String, String> disallowedFeatureBiomes = new HashMap<>();
 
     @Comment("""
 
@@ -336,12 +183,11 @@ public class RSAllowDisallowOmegaConfig implements Config {
             // In the key part, specify the name of the structures or configuredfeatures from
             // Repurposed Structures that you want to affect. Then in the value part, add the identifiers
             // or regex for the biomes that you want Repurposed Structures stuff to ALWAYS spawn in.
-            // You can also do biome categories as well by doing #forest to add to all forest category biomes.
             
             // Separate multiple entries with a comma.
             // Example usage (the actual config entry to edit are the lines not starting with // further down):
             //  "allowedBiomes": {
-            //    "repurposed_structures:mansion_taiga": "minecraft:badlands, fantasy_overworld:.+, #desert"
+            //    "repurposed_structures:mansion_taiga": "minecraft:badlands, fantasy_overworld:.+"
             //  }
             
             // In this example, Taiga Mansions will spawn in the one Badlands biome because we specified that biomes's identifier.
@@ -355,7 +201,7 @@ public class RSAllowDisallowOmegaConfig implements Config {
             // RS's dungeons and wells identifiers can be found here on GitHub:
             //  https://github.com/TelepathicGrunt/RepurposedStructures-Fabric/blob/7f8021cbc073c9919fa0b08dc3b746f9a0e854af/src/main/java/com/telepathicgrunt/repurposedstructures/modinit/RSConfiguredFeatures.java#L268-L290
             """)
-    public final Map<String, String> allowedBiomes = new HashMap<>();
+    public final Map<String, String> allowedFeatureBiomes = new HashMap<>();
 
     @Comment("""
 

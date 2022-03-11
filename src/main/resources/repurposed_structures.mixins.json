@@ -4,10 +4,8 @@
   "package": "com.telepathicgrunt.repurposedstructures.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "world.ChunkGeneratorAccessor",
     "blocks.RailBlockMixin",
     "entities.CatEntityMixin",
-    "entities.DolphinEntityDolphinSwimToTreasureGoalMixin",
     "entities.ShulkerEntityInvoker",
     "features.DungeonFeatureAccessor",
     "features.LessJungleBushInStructuresMixin",
@@ -22,20 +20,18 @@
     "resources.LootTableMixin",
     "resources.NamespaceResourceManagerAccessor",
     "resources.ReloadableResourceManagerImplAccessor",
-    "structures.EnderEyeStrongholdLocatingMixin",
     "structures.ListPoolElementAccessor",
+    "structures.LocateCommandMixin",
+    "structures.PoolElementStructurePieceAccessor",
     "structures.SinglePoolElementAccessor",
-    "structures.StructureFeaturesAccessor",
+    "structures.StructureFeatureAccessor",
     "structures.StructureManagerAccessor",
-    "structures.StructureMobSpawningMixin",
     "structures.StructurePoolAccessor",
     "structures.StructurePoolMixin",
     "structures.StructureProcessorAccessor",
-    "structures.StructureSettingsAccessor",
     "structures.StructureTemplateMixin",
     "structures.TemplateAccessor",
-    "world.MinecraftServerMixin",
-    "world.StructuresConfigMixin"
+    "world.WorldGenRegionAccessor"
   ],
   "client": [
     "blocks.StructureBlockScreenMixin"

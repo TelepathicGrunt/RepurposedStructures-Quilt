@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_nether",
+    {
+      "id": "forge:nether",
+      "required": false
+    },
+    {
+      "id": "c:nether",
+      "required": false
+    },
+    {
+      "id": "c:in_nether",
+      "required": false
+    }
+  ]
+}

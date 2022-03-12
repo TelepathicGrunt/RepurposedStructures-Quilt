@@ -1,3 +1,23 @@
+### **(V.4.0.2 Changes) (1.18.2 Minecraft)**
+
+#### Configs:
+Clarified in the dimension/biome configs that they do not work for RS structures because those are datapack stuff.
+ These dimension/biome configs only affect Repurposed Structures's Wells and Dungeons.
+
+#### Temples:
+Changed up the traps for Wasteland, Crimson, Warped, and Soul Sand Temples.
+
+#### Villages:
+Slightly reduced how messy Giant taiga Villages are.
+
+Fixed town center pieces for Swamp Villages being a block too high.
+
+Mountain Villages can spawn in Jagged Peaks biome now.
+
+#### Tags:
+Simplified some configured structure feature tags internally.
+
+
 ### **(V.4.0.1 Changes) (1.18.2 Minecraft)**
 
 #### Mineshafts:

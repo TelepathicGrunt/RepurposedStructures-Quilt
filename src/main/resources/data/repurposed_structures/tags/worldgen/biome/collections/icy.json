@@ -4,7 +4,15 @@
     "minecraft:ice_spikes",
     "minecraft:frozen_peaks",
     {
-      "id": "byg:shattered_glacier",
+      "id": "byg:is_icy",
+      "required": false
+    },
+    {
+      "id": "forge:is_icy",
+      "required": false
+    },
+    {
+      "id": "c:icy",
       "required": false
     }
   ]

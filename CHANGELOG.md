@@ -1,3 +1,21 @@
+### **(V.4.1.0 Changes) (1.18.2 Minecraft)**
+
+#### Monuments:
+Added Jungle, Icy, Desert, and Nether Monuments! Can be found from Cartographer's map trades too!
+
+#### Tags:
+Updated several biome tags so some RS structures can spawn in the correct modded/datapack biomes better.
+
+#### Mod Compat:
+Added dedicated compat with importing End Remastered's eyes into correct Repurposed Structures's structures.
+
+The rs_spawner json file's entries now can have `"optional": true` to make the entry no longer error if the mob is not present in the registry.
+  Good for marking modded mobs as optional when overriding the rs_spawner json files so that you can later remove that mod and not cause the json file to explode.
+
+#### Lang:
+Fixed typo in zh_cn.json file that prevented it from loading properly.
+
+
 ### **(V.4.0.2 Changes) (1.18.2 Minecraft)**
 
 #### Configs:

@@ -11,27 +11,7 @@
       "required": false
     },
     {
-      "id": "byg:cherry_blossom_forest",
-      "required": false
-    },
-    {
-      "id": "byg:allium_fields",
-      "required": false
-    },
-    {
-      "id": "byg:amaranth_fields",
-      "required": false
-    },
-    {
-      "id": "byg:rose_fields",
-      "required": false
-    },
-    {
-      "id": "byg:cherry_blossom_forest",
-      "required": false
-    },
-    {
-      "id": "byg:orchard",
+      "id": "byg:is_floral",
       "required": false
     },
     {
@@ -47,7 +27,7 @@
       "required": false
     },
     {
-      "id": "c:flower_forests",
+      "id": "c:floral",
       "required": false
     }
   ]

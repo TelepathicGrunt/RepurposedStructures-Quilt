@@ -22,9 +22,12 @@ def getListOfFiles(dirName):
 
 restart = True
 while restart:
+    mc_version = "1.18.2"
     version = input("\ncompat_datapack_version\n").strip()
 
     #-------------------------------------------------------------------------------------------
+    
+    shutil.rmtree(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack", ignore_errors=True) 
 
     listOfFiles = getListOfFiles(fabric_resources)
     listOfFiles = [x for x in listOfFiles if not any(substring in x for substring in ["data\\repurposed_structures\\structures", ".png", "fabric.mod.json", "repurposed_structures.mixins.json", "repurposed_structures.accesswidener"])]
@@ -34,14 +37,15 @@ while restart:
         shutil.copyfile(srcFile, targetFile)
 
     path = os.path.join(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack", "pack.mcmeta")
+    shutil.copyfile("pack.mcmeta", path)
     with open(path, 'r+') as file:
         jsonData = json.load(file)
-        jsonData['pack']['description'] = f"Repurposed Structures - Config Datapack v{version}"
+        jsonData['pack']['description'] = f"Repurposed Structures - Config Datapack ${mc_version} v{version}"
         file.seek(0)
         file.write(json.dumps(jsonData, indent=2))
         file.truncate()
 
-    shutil.make_archive(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack-v{version}", 'zip', f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
+    shutil.make_archive(f"{compat_datapack}\\Repurposed_Structures-Config_Datapack-${mc_version.replace('.', '_')}-v{version}", 'zip', f"{compat_datapack}\\Repurposed_Structures-Config_Datapack")
 
     print('\n\nFINISHED!')
     print('\nRESTARTING!\n\n')

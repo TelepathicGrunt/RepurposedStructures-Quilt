@@ -1,3 +1,18 @@
+### **(V.6.0.2 Changes) (1.19.0 Minecraft)**
+
+#### Misc:
+Fixed crash when Waystone mod is on or RS Compat Datapacks are on.
+
+
+### **(V.6.0.1 Changes) (1.19.0 Minecraft)**
+
+#### Loot Tables:
+Fixed modded loot importing mixin to not nuke loot tables by mistake... oops.
+
+#### Pyramids:
+Fixed Pyramids spawning underwater when they are land pyramids (hopefully got this fixed)
+
+
 ### **(V.6.0.0 Changes) (1.19.0 Minecraft)**
 
 #### Major:

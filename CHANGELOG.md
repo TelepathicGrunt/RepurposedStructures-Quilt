@@ -1,3 +1,42 @@
+### **(V.6.0.4 Changes) (1.19.0 Minecraft)**
+
+#### Dungeons:
+Changed dungeons to use `repurposed_structures:unlimited_count` so you can set dungeon spawnrates insanely high (like a thousand or so)
+ Config datapack is updated with these changes.
+
+Fixed Ocean Dungeons not spawning.
+
+#### Wells:
+Added `repurposed_structures:unlimited_count` to wells to make turning them off easier (just set count to 0)
+ Config datapack is updated with these changes.
+
+#### Bastions:
+Allow Underground Bastions to spawn in Deep Dark biome and increased range of structure check to prevent it from spawning in Ancient Cities.
+
+#### Villages:
+Dark Forest Village now has Red and Black Beds instead of White and Yellow Beds.
+
+Mountain Villages now spawns Stone Brick Stairs instead of Cobblestone Stairs at various spots.
+
+#### Mod Compat:
+Added more Terralith biomes to RS biome tags for RS structures to spawn in.
+
+
+### **(V.6.0.3 Changes) (1.19.0 Minecraft)**
+
+#### Dungeons:
+Fixed RS Dungeons not spawning. I got no one to blame but myself.
+
+#### Wells:
+Fixed RS Wells not spawning.
+
+#### Mineshafts:
+Fixed End Mineshaft's avoid structure set tag being misnamed and thus, broken.
+
+#### Lang:
+ru_ru.json lang file updated by DrHesperus!
+
+
 ### **(V.6.0.2 Changes) (1.19.0 Minecraft)**
 
 #### Misc:

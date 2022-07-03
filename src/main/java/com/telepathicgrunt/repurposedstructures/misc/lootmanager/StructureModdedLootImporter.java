@@ -6,7 +6,6 @@ import com.telepathicgrunt.repurposedstructures.mixin.resources.BuilderAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootContextAccessor;
 import com.telepathicgrunt.repurposedstructures.mixin.resources.LootManagerAccessor;
 import com.telepathicgrunt.repurposedstructures.utils.GeneralUtils;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -16,8 +15,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import org.quiltmc.loader.api.QuiltLoader;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -185,7 +184,7 @@ public final class StructureModdedLootImporter {
         tableMap.put(new ResourceLocation(RepurposedStructures.MODID, "chests/villages/warped_house"), new ResourceLocation("minecraft:chests/village/village_desert_house"));
 
         // For Better Strongholds compat datapack
-        if(FabricLoader.getInstance().isModLoaded("betterstrongholds")) {
+        if(QuiltLoader.isModLoaded("betterstrongholds")) {
             tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/armoury"), new ResourceLocation("minecraft:chests/end_city_treasure"));
             tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/common"), new ResourceLocation("minecraft:chests/end_city_treasure"));
             tableMap.put(new ResourceLocation("betterstrongholds", "chests/end/crypt"), new ResourceLocation("minecraft:chests/end_city_treasure"));
@@ -208,9 +207,7 @@ public final class StructureModdedLootImporter {
         return tableMap;
     }
 
-
-
-    public static List<ItemStack> checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot) {
+    public static void checkAndGetModifiedLoot(LootContext context, LootTable currentLootTable, List<ItemStack> originalLoot) {
         if(RSModdedLootConfig.importModdedItems) {
             // Cache the result of the loottable to the id into our own map.
             ResourceLocation lootTableID = REVERSED_TABLES.computeIfAbsent(
@@ -226,16 +223,15 @@ public final class StructureModdedLootImporter {
             );
 
             if(lootTableID != null && !isInBlacklist(lootTableID)) {
-                return StructureModdedLootImporter.modifyLootTables(context, lootTableID, originalLoot);
+                StructureModdedLootImporter.modifyLootTables(context, lootTableID, originalLoot);
             }
         }
 
-        return originalLoot;
     }
 
-    public static List<ItemStack> modifyLootTables(LootContext context, ResourceLocation lootTableID, List<ItemStack> originalLoot) {
+    public static void modifyLootTables(LootContext context, ResourceLocation lootTableID, List<ItemStack> originalLoot) {
         ResourceLocation tableToImportLoot = TABLE_IMPORTS.get(lootTableID);
-        if(tableToImportLoot == null) return originalLoot; // Safety net
+        if(tableToImportLoot == null) return; // Safety net
 
         // Generate random loot that would've been in vanilla chests. (Need to make new context or else we recursively call ourselves infinitely)
         LootContext newContext = copyLootContext(context);
@@ -252,10 +248,9 @@ public final class StructureModdedLootImporter {
 
         // Add modded loot to my structure's chests
         originalLoot.addAll(newlyGeneratedLoot);
-        return originalLoot;
     }
 
-    protected static LootContext copyLootContext(LootContext oldLootContext) {
+    static LootContext copyLootContext(LootContext oldLootContext) {
         LootContext.Builder newContextBuilder = new LootContext.Builder(oldLootContext.getLevel())
                 .withRandom(oldLootContext.getRandom())
                 .withLuck(oldLootContext.getLuck());

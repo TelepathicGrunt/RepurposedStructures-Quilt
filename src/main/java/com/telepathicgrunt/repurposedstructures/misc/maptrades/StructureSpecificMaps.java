@@ -21,8 +21,6 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.saveddata.maps.MapDecoration;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 
-import java.util.Random;
-
 public class StructureSpecificMaps {
     public static class TreasureMapForEmeralds implements VillagerTrades.ItemListing {
         private final int emeraldCost;

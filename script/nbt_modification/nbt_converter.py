@@ -22,12 +22,20 @@ import os
 
 blockPalette = {""}
 
-originalBiome = ""
+originalBiome = "_taiga"
 newBiome = ""
 string_blacklist = []
 conversion_partial_dict = {
+    "spruce_stairs": "stone_brick_stairs",
+    "spruce_slab": "stone_brick_slab"
 }
 conversion_exact_dict = {
+    "minecraft:village/taiga/villagers": "minecraft:village/taiga/villagers",
+    "minecraft:cobblestone_stairs[facing=north,waterlogged=false]": "minecraft:stone_brick_stairs[facing=east,waterlogged=false]",
+    "minecraft:green_bed": "minecraft:light_gray_bed",
+    "minecraft:cobblestone": "minecraft:stone_bricks",
+    "minecraft:mossy_cobblestone": "minecraft:mossy_stone_bricks",
+    "minecraft:spruce_log": "minecraft:spruce_planks"
 }
 #-------------------------------------------------------------------------------------------
 

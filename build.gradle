@@ -1,29 +1,40 @@
-import com.google.gson.Gson
-import net.fabricmc.loom.task.RemapJarTask
+import com.modrinth.minotaur.TaskModrinthUpload
 
 buildscript {
 	repositories {
 		maven { url "https://plugins.gradle.org/m2/" }
 	}
 	dependencies {
-		classpath group: 'gradle.plugin.com.modrinth.minotaur', name: 'Minotaur', version: '1.2.1'
 	}
 }
 
 plugins {
-	id 'fabric-loom' version '0.12-SNAPSHOT'
+	alias(libs.plugins.quilt.loom)
+	id 'maven-publish'
 	id "net.darkhax.curseforgegradle" version "1.0.7"
+	id "com.modrinth.minotaur" version "2.+"
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
-version = "${project.mod_version}+${project.minecraft_version}"
-archivesBaseName = "${project.modid}_fabric"
+archivesBaseName = "${project.modid}_quilt"
+version = "${project.mod_version}+${libs.versions.minecraft.get()}"
 group = project.maven_group
 
 loom {
 	accessWidenerPath = file("src/main/resources/repurposed_structures.accesswidener")
+}
+
+configurations.all {
+	resolutionStrategy.dependencySubstitution {
+		substitute module('net.fabricmc:fabric-loader') using module(libs.quilt.loader.get().toString())
+		all { DependencySubstitution dependency ->
+			if (dependency.requested instanceof ModuleComponentSelector && dependency.requested.group == 'net.fabricmc.fabric-api') {
+				if (dependency.requested.module == 'fabric-api')
+					dependency.useTarget libs.quilted.fabric.api.get().toString()
+				else
+					dependency.useTarget 'org.quiltmc.quilted-fabric-api' + ':' + dependency.requested.module + ':' + libs.versions.quilted.fabric.api.get()
+			}
+		}
+	}
 }
 
 repositories {
@@ -34,25 +45,24 @@ repositories {
 }
 
 dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
-	
-	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation ("maven.modrinth:modmenu:${project.mod_menu_version}") { transitive = false }
+	minecraft libs.minecraft
+	mappings( loom.layered {
+		addLayer quiltMappings.mappings("org.quiltmc:quilt-mappings:${libs.versions.quilt.mappings.get()}:v2")
+		officialMojangMappings()
+	})
+	modImplementation libs.quilt.loader
+	modImplementation libs.quilted.fabric.api
 
-	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
-	include "maven.modrinth:midnightlib:${project.midnightlib_version}"
+	modImplementation "maven.modrinth:modmenu:${libs.versions.mod.menu.get()}"
 
-	modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:${project.commandstructures_version}"
-	modRuntimeOnly "com.telepathicgrunt:StructureVoidToggle-Fabric:${project.structurevoidtoggle_version}"
+	modImplementation "maven.modrinth:midnightlib:${libs.versions.midnightlib.get()}"
+	include "maven.modrinth:midnightlib:${libs.versions.midnightlib.get()}"
 
-	//modRuntimeOnly "curse.maven:friendsandfoes-551364:3827720"
-	//modRuntimeOnly "curse.maven:architecturyapi-419699:3834396"
+	modRuntimeOnly "com.telepathicgrunt:CommandStructures-Fabric:${libs.versions.commandstructures.get()}"
+	modRuntimeOnly "com.telepathicgrunt:StructureVoidToggle-Fabric:${libs.versions.structurevoidtoggle.get()}"
 
-	//modRuntimeOnly "curse.maven:betternether-311377:3814362"
-	//modRuntimeOnly "curse.maven:betterend-413596:3814370"
-	//modRuntimeOnly "curse.maven:bclib-495191:3814359"
+
+	//modRuntimeOnly "curse.maven:friendsandfoes-551364:3668804"
 
 	//modRuntimeOnly "curse.maven:cyanide-543444:3538092"
 	//modRuntimeOnly "curse.maven:towersofthewild-552655:3633073"
@@ -66,38 +76,61 @@ dependencies {
 apply from: 'gradle/processresources.gradle'
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.encoding = "UTF-8"
-	it.options.release = 17
+	it.options.encoding = 'UTF-8'
+	it.options.release.set(17)
 }
 
 java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
 	withSourcesJar()
 }
 
 jar {
-	from "LICENSE"
+	from("LICENSE") {
+		rename { "${it}_${archivesBaseName}"}
+	}
 }
 
 apply from: 'gradle/maven.gradle'
-apply from: 'gradle/modrinth.gradle'
+
+String fileContents = new File("CHANGELOG.md").getText('UTF-8')
+
 task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
 	apiToken = "$System.env.CURSEFORGEKEY"
 	int projectId = 391366
-	String changelogText = new File("CHANGELOG.md").getText('UTF-8')
+	String changelogText = fileContents
 
 	def mainFile = upload(projectId, remapJar)
 	mainFile.changelog = changelogText
 	mainFile.changelogType = "markdown"
-	mainFile.releaseType = "beta"
-	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${project.minecraft_version} MC)"
-	mainFile.addRequirement("fabric-api")
+	mainFile.releaseType = "release"
+	mainFile.displayName = "Repurposed Structures v${project.mod_version} (${libs.versions.minecraft.get()} MC Quilt)"
+	mainFile.addGameVersion("1.19")
+	mainFile.addModLoader("Quilt")
+	mainFile.addRequirement("qsl")
 	mainFile.addRequirement("midnightlib")
 }
 
+modrinth {
+	token = System.getenv("MODRINTH")
+	versionName = "Repurposed Structures"
+	versionNumber = project.version + "+quilt"
+	projectId = "muf0XoRe"
+	uploadFile = remapJar
+	changelog = fileContents
+	versionType = "RELEASE"
+	gameVersions = ["1.19"]
+	loaders = ["quilt"]
+	dependencies {
+		required.project "qsl"
+		required.project "midnightlib"
+	}
+}
 
 task buildAndRelease{}
 tasks.publish.mustRunAfter tasks.build
 tasks.publishCurseForge.mustRunAfter tasks.publish
-tasks.publishModrinth.mustRunAfter tasks.publish
+tasks.modrinth.mustRunAfter tasks.publish
 tasks.publishCurseForge.dependsOn("remapJar")
-tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.publishModrinth)
+tasks.buildAndRelease.dependsOn(tasks.build, tasks.publish, tasks.publishCurseForge, tasks.modrinth)
